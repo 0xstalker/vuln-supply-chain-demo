@@ -22,12 +22,6 @@ jobs:
         echo "Dummy secret value: ${{ secrets.DUMMY_SECRET }}"
         echo "This demonstrates how secrets can leak in logs"
 
-    # CRITICAL VULNERABILITY 2: Dependency fetching from untrusted sources
-    - name: Install tools from untrusted sources
-      run: |
-        go install github.com/securego/gosec/v2/cmd/gosec@latest
-        # This simulates installing tools without proper verification
-
     # CRITICAL VULNERABILITY 3: Insecure Docker build context (exfiltration happens in Dockerfile)
     - name: Build Docker image
       run: |
