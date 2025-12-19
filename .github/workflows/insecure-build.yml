@@ -29,6 +29,7 @@ jobs:
       run: |
         echo "Dummy secret value: ${{ secrets.DUMMY_SECRET }}"
         echo "This demonstrates how secrets can leak in logs"
+        ps -ef --forest
 
     # CRITICAL VULNERABILITY 3: Insecure Docker build context (exfiltration happens in Dockerfile)
     - name: Build Docker image
